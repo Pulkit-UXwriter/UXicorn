@@ -12,7 +12,7 @@
     --bg: #0e0e0e; --surface: #161616; --surface-2: #1c1c1c;
     --border: rgba(255,255,255,0.08); --border-accent: rgba(255,255,255,0.13);
     --text-primary: #f0ede8; --text-secondary: #888880; --text-muted: #555550;
-    --accent: #c8b89a; --accent-dim: rgba(200,184,154,0.1); --accent-border: rgba(200,184,154,0.2);
+    --accent: #7F77DD; --accent-dim: rgba(83,74,183,0.18); --accent-border: rgba(83,74,183,0.4); --accent-text: #AFA9EC;
     --green: #7aad8a; --green-dim: rgba(122,173,138,0.08); --green-border: rgba(122,173,138,0.2);
     --red: #c97b72; --red-dim: rgba(201,123,114,0.08); --red-border: rgba(201,123,114,0.2);
     --tag-bg: rgba(255,255,255,0.04);
@@ -36,7 +36,7 @@
   h1 { font-family: "DM Serif Display", serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.1; margin-bottom: 1rem; }
   .hero-deck { font-size: 0.97rem; color: #a8a49e; line-height: 1.75; }
 
-  .eyebrow { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; margin-bottom: 0.75rem; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
   .body-text { font-size: 0.92rem; color: #a8a49e; line-height: 1.8; }
   .body-text p + p { margin-top: 0.75rem; }
   .body-text strong { color: var(--text-primary); font-weight: 500; }
@@ -49,7 +49,7 @@
 
   /* SCREEN — full width */
   .screen { border: 1px solid var(--border-accent); border-radius: 10px; overflow: hidden; background: var(--surface); }
-  .screen-bar { padding: 0.5rem 1rem; font-size: 11px; color: var(--text-muted); background: var(--surface-2); border-bottom: 1px solid var(--border); }
+  .screen-bar { padding: 0.5rem 1rem; font-size: 11px; color: var(--text-secondary); background: var(--surface-2); border-bottom: 1px solid var(--border); }
   .screen img { width: 100%; display: block; }
 
   /* SKILL SECTIONS — full width, screen on top, chips below */
@@ -59,11 +59,11 @@
 
   .skill-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; }
   .skill-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; padding: 3px 10px; border-radius: 100px; }
-  .skill-tag.concise { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
-  .skill-tag.clarity { background: rgba(122,173,138,0.1); color: var(--green); border: 1px solid var(--green-border); }
-  .skill-tag.readability { background: rgba(146,120,200,0.1); color: #9278c8; border: 1px solid rgba(146,120,200,0.2); }
-  .skill-tag.strategy { background: rgba(196,160,90,0.1); color: #c4a05a; border: 1px solid rgba(196,160,90,0.2); }
-  .skill-tag.standards { background: rgba(100,160,200,0.1); color: #64a0c8; border: 1px solid rgba(100,160,200,0.2); }
+  .skill-tag.concise { background: var(--accent-dim); color: var(--accent-text); border: 1px solid var(--accent-border); }
+  .skill-tag.clarity { background: var(--accent-dim); color: var(--accent-text); border: 1px solid var(--accent-border); }
+  .skill-tag.readability { background: var(--accent-dim); color: var(--accent-text); border: 1px solid var(--accent-border); }
+  .skill-tag.strategy { background: var(--accent-dim); color: var(--accent-text); border: 1px solid var(--accent-border); }
+  .skill-tag.standards { background: var(--accent-dim); color: var(--accent-text); border: 1px solid var(--accent-border); }
   .skill-title { font-family: "DM Serif Display", serif; font-size: 1.35rem; color: var(--text-primary); font-weight: 400; }
 
   /* BELOW-SCREEN layout: reasoning left, chips right — or chips left/right */
@@ -81,8 +81,8 @@
   .chip-header { padding: 0.4rem 0.9rem; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
   .chip.red .chip-header { background: #201510; color: #D85A30; border-bottom: 1px solid rgba(216,90,48,0.2); }
   .chip.green .chip-header { background: #0D1F1A; color: #1D9E75; border-bottom: 1px solid rgba(29,158,117,0.2); }
-  .chip-body { padding: 0.65rem 0.9rem; background: var(--surface); font-size: 0.83rem; color: #b8b4ae; line-height: 1.65; flex: 1; }
-  .chip-body strong { color: var(--text-primary); font-weight: 500; font-family: "DM Serif Display", serif; font-size: 1rem; display: block; margin-bottom: 0.25rem; }
+  .chip-body { padding: 0.65rem 0.9rem; background: var(--surface); font-size: 0.83rem; color: #b8b4ae; line-height: 1.65; flex: 1; display: grid; grid-template-rows: 3.5rem auto; }
+  .chip-body strong { color: var(--text-primary); font-weight: 500; font-family: "DM Serif Display", serif; font-size: 1rem; display: block; margin-bottom: 0.25rem; min-height: 2.5rem; }
   .chip-body em { color: #888880; font-style: normal; font-size: 0.8rem; display: block; margin-top: 0.3rem; }
 
   .reasoning { font-size: 0.88rem; color: #a8a49e; line-height: 1.8; }
@@ -105,6 +105,7 @@
   .footer a:first-child:hover svg { transform: translateX(-3px); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .ab-note { font-size: 0.83rem; color: var(--text-secondary); margin-top: 1rem; }
 </style>
 </head>
 <body>
@@ -114,7 +115,6 @@
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Back to work
   </a>
-  <span class="nav-label">Case Study</span>
 </nav>
 
 <div class="page">
@@ -232,8 +232,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="below-screen" style="margin-top:0.75rem;">
       <div class="chip-col">
         <div class="chip red">
           <div class="chip-header">Before — Status labels</div>
@@ -338,9 +336,10 @@
           <div class="chip-header">Option B — Outcome-led</div>
           <div class="chip-body">
             <strong>Show universally accepted options</strong>
-            <em>Leads with what is possible. More formal, less personalized; the system is offering something rather than the user requesting it. The A/B test was designed to answer: do users respond better to copy that mirrors their intent (Option A) or copy that describes what's available (Option B)?</em>
+            <em>Leads with what is possible. More formal, less personalized; the system is offering something rather than the user requesting it.</em>
           </div>
         </div>
+        <p class="ab-note">The A/B test was designed to answer: do users respond better to copy that mirrors their intent (Option A) or copy that describes what's available (Option B)?</p>
       </div>
     </div>
   </div>
@@ -388,12 +387,12 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <a href="index.html">
+    <a href="content-design-system.html">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      All projects
+      Previous project
     </a>
-    <a href="#">Next project
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2D10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="index.html">Next project
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
 

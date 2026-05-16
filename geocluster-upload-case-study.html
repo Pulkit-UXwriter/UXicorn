@@ -12,7 +12,7 @@
     --bg: #0e0e0e; --surface: #161616; --surface-2: #1c1c1c;
     --border: rgba(255,255,255,0.08); --border-accent: rgba(255,255,255,0.13);
     --text-primary: #f0ede8; --text-secondary: #888880; --text-muted: #555550;
-    --accent: #c8b89a; --accent-dim: rgba(200,184,154,0.1); --accent-border: rgba(200,184,154,0.2);
+    --accent: #7F77DD; --accent-dim: rgba(83,74,183,0.18); --accent-border: rgba(83,74,183,0.4); --accent-text: #AFA9EC;
     --green: #7aad8a; --green-dim: rgba(122,173,138,0.08); --green-border: rgba(122,173,138,0.2);
     --red: #c97b72; --red-dim: rgba(201,123,114,0.08); --red-border: rgba(201,123,114,0.2);
     --amber: #c4a05a; --amber-dim: rgba(196,160,90,0.08); --amber-border: rgba(196,160,90,0.2);
@@ -39,13 +39,13 @@
   .part { padding: 3rem 0; border-top: 1px solid var(--border); opacity: 0; animation: fadeUp 0.6s ease forwards; }
   .p1 { animation-delay: 0.1s; } .p2 { animation-delay: 0.2s; } .p3 { animation-delay: 0.3s; }
 
-  .eyebrow { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; margin-bottom: 1rem; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem; }
   .body-text { font-size: 0.92rem; color: #a8a49e; line-height: 1.8; }
   .body-text p + p { margin-top: 0.75rem; }
   .body-text strong { color: var(--text-primary); font-weight: 500; }
 
   .screen { border: 1px solid var(--border-accent); border-radius: 10px; overflow: hidden; background: var(--surface); }
-  .screen-bar { padding: 0.5rem 1rem; font-size: 11px; color: var(--text-muted); background: var(--surface-2); border-bottom: 1px solid var(--border); }
+  .screen-bar { padding: 0.5rem 1rem; font-size: 11px; color: var(--text-secondary); background: var(--surface-2); border-bottom: 1px solid var(--border); }
   .screen img { width: 100%; display: block; }
 
   /* PART 1 */
@@ -54,7 +54,7 @@
 
   /* constrain original design height */
   .orig-img-wrap { border: 1px solid var(--border-accent); border-radius: 10px; overflow: hidden; background: var(--surface); }
-  .orig-img-wrap .screen-bar { padding: 0.5rem 1rem; font-size: 11px; color: var(--text-muted); background: var(--surface-2); border-bottom: 1px solid var(--border); }
+  .orig-img-wrap .screen-bar { padding: 0.5rem 1rem; font-size: 11px; color: var(--text-secondary); background: var(--surface-2); border-bottom: 1px solid var(--border); }
   .orig-img-wrap img { width: 100%; display: block; max-height: 320px; object-fit: cover; object-position: top; }
 
   .col-right { display: flex; flex-direction: column; gap: 1.75rem; }
@@ -72,23 +72,26 @@
 
   .pill { display: inline-flex; align-items: center; font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 100px; width: fit-content; }
   .pill.avoided { background: var(--amber-dim); color: var(--amber); border: 1px solid var(--amber-border); }
-  .pill.blocked { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+  .pill.blocked { background: var(--accent-dim); color: var(--accent-text); border: 1px solid var(--accent-border); }
   .pill.rejected { background: var(--red-dim); color: var(--red); border: 1px solid var(--red-border); }
   .pill.shipped { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-border); }
 
-  .reasoning-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .reasoning-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: stretch; }
   @media (max-width: 700px) { .reasoning-grid { grid-template-columns: 1fr; } }
 
-  .reason-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .reason-title { font-size: 0.83rem; font-weight: 500; color: var(--text-primary); }
+  .reason-card { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); border-left: 2px solid var(--accent); display: flex; flex-direction: column; }
+  .reason-card-header { padding: 0.4rem 0.9rem; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent-dim); color: var(--accent-text); border-bottom: 1px solid var(--accent-border); }
+  .reason-card-body { padding: 0.65rem 0.9rem; background: var(--surface); display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
+  .reason-title { font-family: "DM Serif Display", serif; font-size: 1rem; font-weight: 400; color: var(--text-primary); display: block; margin-bottom: 0.2rem; }
   .reason-body { font-size: 0.78rem; color: #b8b4ae; line-height: 1.65; }
+  .reason-top { display: flex; flex-direction: column; gap: 0.35rem; }
   .reason-mytake { font-size: 0.76rem; color: #888880; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 0.5rem; margin-top: 0.25rem; }
   .reason-mytake strong { color: var(--text-secondary); font-weight: 500; }
 
   /* PART 3 */
   .decision-stack { display: flex; flex-direction: column; gap: 0.6rem; }
   .decision-chip { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  .decision-chip-header { padding: 0.4rem 0.9rem; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent-dim); color: var(--accent); border-bottom: 1px solid var(--accent-border); }
+  .decision-chip-header { padding: 0.4rem 0.9rem; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent-dim); color: var(--accent-text); border-bottom: 1px solid var(--accent-border); }
   .decision-chip-body { padding: 0.7rem 0.9rem; background: var(--surface); font-size: 0.8rem; color: #b8b4ae; line-height: 1.65; }
   .decision-chip-body strong { color: var(--text-primary); font-weight: 500; display: block; margin-bottom: 0.2rem; }
 
@@ -108,7 +111,6 @@
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Back to work
   </a>
-  <span class="nav-label">Case Study</span>
 </nav>
 
 <div class="page">
@@ -180,21 +182,36 @@
     <div class="reasoning-grid">
 
       <div class="reason-card">
-        <div class="reason-title">Sample files also moved to documentation</div>
-        <div class="reason-body">The idea was to force users to open documentation by keeping quite essential sample files there. Users would then notice the guidelines as well, as a byproduct. It would have worked technically.</div>
-        <div class="reason-mytake"><strong>Why I flagged it:</strong> It was engineering around users rather than helping them. I raised this explicitly — it was too close to a dark pattern and we moved on.</div>
+        <div class="reason-card-header">Design decision</div>
+        <div class="reason-card-body">
+          <div class="reason-top">
+          <div class="reason-title">Sample files also moved to documentation</div>
+          <div class="reason-body">Moving even the sample files into the documentation, forcing users to open them and notice the guidelines as well. It would have worked technically.</div>
+          </div>
+          <div class="reason-mytake" style="margin-top: -6rem;"><strong>Why I flagged it:</strong> It was engineering around users rather than helping them. I raised this explicitly — it was too close to a dark pattern and we moved on.</div>
+        </div>
       </div>
 
       <div class="reason-card">
-        <div class="reason-title">Full guidelines above the upload zone</div>
-        <div class="reason-body">All rules expanded inline, before the upload action. Nothing hidden.</div>
-        <div class="reason-mytake"><strong>Why we moved on:</strong> Too heavy. Guidelines before the action made the modal feel like a gate to pass rather than a tool to use. The right instinct, not the best execution.</div>
+        <div class="reason-card-header">Design decision</div>
+        <div class="reason-card-body">
+          <div class="reason-top">
+          <div class="reason-title">Full guidelines above the upload zone</div>
+          <div class="reason-body">All rules expanded inline, before the upload action. Nothing hidden.</div>
+          </div>
+          <div class="reason-mytake"><strong>Why we moved on:</strong> Too heavy. Guidelines before the action made the modal feel like a gate to pass rather than a tool to use. The right instinct, not the best execution.</div>
+        </div>
       </div>
 
       <div class="reason-card">
-        <div class="reason-title">"Guidelines" accordion above the upload zone</div>
-        <div class="reason-body">Guidelines behind an expandable toggle, placed before the upload action. Users who need them open it. Users who don't, skip past.</div>
-        <div class="reason-mytake"><strong>Why it didn't ship:</strong> This was my preferred solution; correct content hierarchy, no cognitive overload. However, the accordion component was unavailable for modals. A technical blocker.</div>
+        <div class="reason-card-header">Design decision</div>
+        <div class="reason-card-body">
+          <div class="reason-top">
+          <div class="reason-title">Guidelines accordion above the upload zone</div>
+          <div class="reason-body">Guidelines behind an expandable toggle, placed before the upload action. Users who need them open it. Users who don't, skip past.</div>
+          </div>
+          <div class="reason-mytake"><strong>Why it didn't ship:</strong> This was my preferred solution; correct content hierarchy, no cognitive overload. However, the accordion component was unavailable for modals. A technical blocker.</div>
+        </div>
       </div>
 
     </div>
@@ -215,7 +232,7 @@
       <div class="col-right">
         <div>
           <div class="eyebrow">Why This Works</div>
-          <div class="body-text">
+          <div class="body-text" style="padding-top: 2.5rem;">
             <p>With the accordion blocked, one question settled the design: which risk is harder to recover from? Cognitive load is recoverable. Silent data errors from a malformed file are not.</p>
             <p>Hence, we kept the guidelines but moved them below the upload zone. This was not the ideal hierarchy, but a deliberate tradeoff. Users who are confident can proceed immediately. Users who aren't have everything they need without leaving the modal.</p>
             <p>Further, I reduced the text in the modal by keeping only the rules that could directly prevent errors. Edge cases went to documentation.</p>
@@ -228,11 +245,11 @@
   </div>
 
   <div class="footer">
-    <a href="index.html">
+    <a href="loyalty-tiers-case-study.html">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      All projects
+      Previous project
     </a>
-    <a href="#">Next project
+    <a href="content-design-system.html">Next project
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
